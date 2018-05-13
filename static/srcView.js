@@ -116,7 +116,7 @@ export class SourceView extends React.Component {
         }
 
         // Make source links active.
-        var linkables = $("#div_src_view").find(".src_link");
+        const linkables = $("#div_src_view").find(".src_link");
         linkables.off("click");
         linkables.click((e) => {
             // The data for what to do on-click is encoded in the data-link attribute.
@@ -124,14 +124,14 @@ export class SourceView extends React.Component {
             e.preventDefault();
             e.stopPropagation();
 
-            var docUrl = e.target.dataset.docLink;
+            const docUrl = e.target.dataset.docLink;
             if (docUrl) {
                 window.open(docUrl, '_blank');
                 return;
             }
 
-            var file_loc = e.target.dataset.link.split(':');
-            var file = file_loc[0];
+            const file_loc = e.target.dataset.link.split(':');
+            const file = file_loc[0];
 
             if (file === "search") {
                 this.props.app.getUses(file_loc[1]);
@@ -188,8 +188,8 @@ export class SourceView extends React.Component {
 function jumpToLine(line) {
     // Jump to the start line. 100 is a fudge so that the start line is not
     // right at the top of the window, which makes it easier to see.
-    var y = line * $("#src_line_number_1").height() - 100;
-    let div = document.getElementById("src");
+    const y = line * $("#src_line_number_1").height() - 100;
+    const div = document.getElementById("src");
     div.scroll(0, y);
 }
 

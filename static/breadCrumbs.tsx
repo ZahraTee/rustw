@@ -9,7 +9,7 @@
 import * as React from 'react';
 import { RustwApp } from './app.js';
 
-declare var CONFIG: any;
+declare const CONFIG: any;
 
 export interface BreadCrumbProps {
     app: RustwApp,

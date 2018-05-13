@@ -13,9 +13,9 @@ export function make_url(suffix) {
 export function highlight_spans(highlight, line_number_prefix, src_line_prefix, css_class, element) {
     // Remove any previous highlighting.
     if (element) {
-        let highlighted = $(element).find('.' + css_class);
+        const highlighted = $(element).find('.' + css_class);
         highlighted.removeClass(css_class);
-        let floating = $(element).find('.' + css_class + '.floating_highlight');
+        const floating = $(element).find('.' + css_class + '.floating_highlight');
         floating.remove();
     }
 
@@ -117,7 +117,7 @@ export function parseLink(file_loc) {
     //     }
     // }
 
-    var data = {
+    const data = {
         "line_start": line_start,
         "line_end": line_end,
         "column_start": column_start,
@@ -136,8 +136,8 @@ export function parseLink(file_loc) {
 //         |----| left
 //         |------------| right
 function make_highlight(src_line_prefix, line_number, left, right, css_class) {
-    var line_div = $("#" + src_line_prefix + line_number);
-    var highlight = $("<div>&nbsp;</div>");
+    const line_div = $("#" + src_line_prefix + line_number);
+    const highlight = $("<div>&nbsp;</div>");
     highlight.addClass(css_class + " floating_highlight");
 
     const adjust = line_div.data('adjust');
@@ -152,15 +152,15 @@ function make_highlight(src_line_prefix, line_number, left, right, css_class) {
         right = line_div.width();
     }
 
-    var width = right - left;
-    var padding = parseInt(line_div.css("padding-left"));
+    let width = right - left;
+    const padding = parseInt(line_div.css("padding-left"));
     if (left > 0) {
         left += padding;
     } else {
         width += padding;
     }
 
-    var offset = line_div.offset();
+    const offset = line_div.offset();
     if (offset) {
         line_div.after(highlight);
         offset.left += left;

@@ -25,7 +25,7 @@ export class Menu extends React.Component {
             return;
         }
 
-        var menuDiv = $(`#${this.props.id}`);
+        const menuDiv = $(`#${this.props.id}`);
         menuDiv.offset(this.props.location);
     }
 
@@ -36,7 +36,7 @@ export class Menu extends React.Component {
             .filter((i) => { return !i.unstable || CONFIG.unstable_features })
             .map((i) => {
                 const className = `${this.props.id}_link menu_link`;
-                let onClick = (ev) => {
+                const onClick = (ev) => {
                     self.hideMenu(ev);
                     i.fn(self.props.target, self.props.location);
                 };
@@ -51,7 +51,7 @@ export class Menu extends React.Component {
     }
 
     render() {
-        let items = this.items();
+        const items = this.items();
     
         if (items.length === 0) {
             return null;

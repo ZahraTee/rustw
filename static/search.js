@@ -26,7 +26,7 @@ class ResultSet extends React.Component {
         const { input, kind } = this.props;
         const self = this;
         let count = -1;
-        let result = input.map((r) => {
+        const result = input.map((r) => {
             count += 1;
             return <FileResult lines={r.lines} file_name={r.file_name} app={self.props.app} kind={kind} count={count} key={`${kind}-${r.file_name}`}/>;
         });
@@ -39,7 +39,7 @@ class ResultSet extends React.Component {
 
 function FileResult(props) {
     const { lines, file_name, kind, count } = props;
-    let divLines = lines.map((l) => {
+    const divLines = lines.map((l) => {
         const lineId = `snippet_line_number_${kind}_${count}_${l.line_start}`;
         const snippetId = `snippet_line_${kind}_${count}_${l.line_start}`;
 
@@ -141,7 +141,7 @@ export function SearchResults(props) {
         return noResults();
     } else {
         let count = -1;
-        let defs = props.defs.map((d) => {
+        const defs = props.defs.map((d) => {
             count += 1;
             return <StructuredResultSet app={props.app} input={d} key={d.file + '-' + count} />;
         });
